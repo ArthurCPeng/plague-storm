@@ -1,0 +1,34 @@
+{
+  "infection_control": {
+    "construction_hospital": "Constructs a new hospital in the district to accomodate patients. Prevents the spread of disease, while increasing public perception of competence and humanity.",
+    "construction_quarantine": "Constructs a quarantine center for close contacts. Prevents the spread of disease, increases public perception of competence, but slightly decreases perception of humanity.",
+    "hcw_pay": "Increases pay for healthcare workers",
+    "hcw_recruitment": "Recruits new healthcare workers by calling on senior medical students to join frontline workers.",
+    "hcw_transfer": "Transfer healthcare workers from a region with sufficient capacity to a region with insufficient capacity.",
+    "testing_improvement": "Invest in improving the sensitivity and specificty of the test.",
+    "testing_import": "Import testing kits from foreign countries. A large increase in testing at a higher price.",
+    "testing_production": "Gradually increase domestic production of testing kits.",
+    "lockdown_mask": "Order residents to wear masks when outside. Decreases spread of the virus, increases perception of competence, slightly decreases perception of humanity.",
+    "lockdown_crowd": "Prohibit large public gatherings. Decreases spread of the virus. Relatively large impact on the economy due to closure of tourist destinations, cinemas, sports facilities, etc.",
+    "lockdown_stayhome": "Order residents to remain at home except for essential needs. Significantly decreases spread of the virus. Large impact on the economy. Increased public perception of competence, but slightly decreased perception of humanity.",
+    "lockdown_city": "Impose a lockdown over the entire city. Mask order, crowd prohibition and stay at home order will be enacted simultaneously. Effectively decreases spread of the virus, and blocks transmission of virus between district borders. Severe impact on the economy. Increases public perception of competence, but significantly decreases public perception of humanity.",
+    "lockdown_mask_stop": "Allow residents to not wear a mask while out in public. Slightly increases spread of competence, slightly increases perception of humanity",
+    "lockdown_crowd_stop": "Allow large public gatherings such as concerts and sports games. Increases the spread of the virus. Helps to restore the economy.",
+    "lockdown_stayhome_stop": "Remove stay at home orders. Significantly increases spread of the virus, while greatly restoring the economy",
+    "lockdown_city_stop": "Remove lockdown over the city. People and goods can now freely flow between this district and other districts. Significantly restores the economy while promoting the spread of the virus between and within borders.",
+    "research_funding": "Increase the level of funding for research into the new disease. Increases speed of research into the nature and transmission of the virus, epidemiological investigations, treatments and vaccines.",
+    "research_researcher": "Hire noted experts and scientists to research the new disease. Significantly increases speed of research into the nature and transmission of the virus, epidemiological investigations, treatments and vaccines. Also increases public perception of competence."
+
+  },
+  "censorship": {
+
+  },
+  "publicity": {
+
+  },
+  "judicial": {
+
+  },
+  "stability": {
+  }
+}

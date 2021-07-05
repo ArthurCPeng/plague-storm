@@ -1,0 +1,6 @@
+{
+  "lockdown_mask_change_alert": "You have made many announcements and reversals on the mask order. Excessive changes in governmental policy may confuse and anger residents and lead to decreased stability and increased risk of infection.",
+  "lockdown_crowd_change_alert": "You have made many announcements and reversals on prohibitions regarding public gatherings. Excessive changes in governmental policy may confuse and anger residents and lead to decreased stability and increased risk of infection.",
+  "lockdown_stayhome_change_alert": "You have made many announcements and reversals on stay at home orders. Excessive changes in governmental policy may confuse and anger residents and lead to decreased stability and increased risk of infection.",
+  "lockdown_city_change_alert": "You have made many announcements and reversals on the district lockdown. Excessive changes in governmental policy may confuse and anger residents and lead to decreased stability and increased risk of infection."
+}
