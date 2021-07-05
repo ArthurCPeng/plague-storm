@@ -1,4 +1,6 @@
+//district_connection = require('assets/files/modules/district_connection.js')
 class Scene_main extends Phaser.Scene {
+
   constructor() {
     super("main")
   }
@@ -140,6 +142,7 @@ class Scene_main extends Phaser.Scene {
     this.load.json("action_instructions","assets/files/action_instructions.json")
     this.load.json("research_projects","assets/files/research_projects.json")
     this.load.json("alerts","assets/files/alerts.json")
+    //this.load.json("district_connection","assets/files/district_connection.json")
 
   }
 
@@ -615,513 +618,20 @@ class Scene_main extends Phaser.Scene {
 
   //Create base stats for districts
   create_district_stats(){
-    this.district1_stats = {
-      population: 115,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.2,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 80,
-        tax: 0.1,
-        reserve: 70,
-        expense: 40
-      }
+    var districtInfo = new DistrictInfo()
+    districtInfo.set_district_stats()
+    this.district1_stats = districtInfo.district1_stats
+    this.district2_stats = districtInfo.district2_stats
+    this.district3_stats = districtInfo.district3_stats
+    this.district4_stats = districtInfo.district4_stats
+    this.district5_stats = districtInfo.district5_stats
+    this.district6_stats = districtInfo.district6_stats
+    this.district7_stats = districtInfo.district7_stats
+    this.district8_stats = districtInfo.district8_stats
+    this.district9_stats = districtInfo.district9_stats
+    this.district10_stats = districtInfo.district10_stats
+    this.national_stats = districtInfo.national_stats
 
-
-    }
-    this.district2_stats = {
-      population: 235,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.3,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 80,
-        tax: 0.1,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.district3_stats = {
-      population: 76,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.2,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 80,
-        tax: 0.1,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.district4_stats = {
-      population: 265,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.4,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 80,
-        tax: 0.1,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.district5_stats = {
-      population: 538,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.4,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 90,
-        tax: 0.2,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.district6_stats = {
-      population: 519,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 2,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 80,
-        tax: 0.18,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.district7_stats = {
-      population: 212,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.2,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 77,
-        tax: 0.1,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.district8_stats = {
-      population: 330,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.3,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 72,
-        tax: 0.1,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.district9_stats = {
-      population: 177,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.3,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 83,
-        tax: 0.1,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.district10_stats = {
-      population: 69,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.2,
-        hospital_capacity: 30,
-        hospital_capacity_factor: 0.0005,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 67,
-        tax: 0.08,
-        reserve: 70,
-        expense: 40
-      }
-    }
-    this.national_stats = {
-      population: 0,
-      infection_control: {
-        cases_actual: 0,
-        cases_diagnosed: 0,
-        cases_active: 0,
-        cases_hospitalized: 0,
-        cases_recovered: 0,
-        death_rate: 0.05,
-        deaths: 0,
-        quarantined: 0,
-        r: 1.2,
-        hospital_capacity: 30,
-        quarantine_capacity: 10,
-        hcw_capacity: 30,
-        hcw_pay: 50,
-        testing_capacity: 0.01,
-        testing_production: 0,
-        testing_max_reached: 0,
-        lockdown_mask: false,
-        lockdown_crowd: false,
-        lockdown_stayhome: false,
-        lockdown_city: false,
-        lockdown_mask_changes: 0,
-        lockdown_crowd_changes: 0,
-        lockdown_stayhome_changes: 0,
-        lockdown_city_changes: 0
-      },
-      stability: {
-        police_presence: 30,
-        military_presence: 0
-      },
-      sentiment: {
-        competence: 80,
-        transparency: 80,
-        humanity: 80,
-        sentiment: 0.8*0.8*0.8*this.sentiment_factor
-      },
-      economy: {
-        production: 67,
-        tax: 0.08,
-        reserve: 53,
-        expense: 40
-      }
-    }
     this.district_stats = {
       district1: this.district1_stats,
       district2: this.district2_stats,
@@ -1679,37 +1189,45 @@ class Scene_main extends Phaser.Scene {
   }
 
   create(){
+
+
     //----------------------BASIC GLOBAL PARAMETERS----------------------//
+    //Refer to files/modules/global_params.js
+
+    var globalParams = new GlobalParams()
+    globalParams.setGlobalParams()
+
     //Disease spread//
-    this.recovery_rate = 0.015 //* this.adjustment_factor
-    this.death_rate = 0.003 //* this.adjustment_factor
-    this.hospital_recovery_benefit = 0.000001
-    this.hospital_recovery_rate_factor = 0.01 //* this.adjustment_factor
-    this.base_hospital_recovery_rate = 0.02 //* this.adjustment_factor
-    this.immunity_proportion = 0.1
-    this.r_adjustment_factor = 1 / 10
+    this.recovery_rate = globalParams.recovery_rate
+    this.death_rate = globalParams.death_rate
+    this.hospital_recovery_benefit = globalParams.hospital_recovery_benefit
+    this.hospital_recovery_rate_factor = globalParams.hospital_recovery_rate_factor
+    this.base_hospital_recovery_rate = globalParams.base_hospital_recovery_rate
+    this.immunity_proportion = globalParams.immunity_proportion
+    this.r_adjustment_factor = globalParams.r_adjustment_factor
+
 
     //Research
-    this.research_funding = 10
-    this.research_rate = 1.7
-    this.rate_to_funding_ratio = 0.09
+    this.research_funding = globalParams.research_funding
+    this.research_rate = globalParams.research_rate
+    this.rate_to_funding_ratio = globalParams.rate_to_funding_ratio
 
     //Economy//
-    this.income_factor = 3
-    this.expense_factor = 3
-    this.hospital_construction_expense = 35
-    this.quarantine_construction_expense = 20
+    this.income_factor = globalParams.income_factor
+    this.expense_factor = globalParams.expense_factor
+    this.hospital_construction_expense = globalParams.hospital_construction_expense
+    this.quarantine_construction_expense = globalParams.quarantine_construction_expense
 
     //sentiment
-    this.sentiment_factor = 80/(0.8*0.8*0.8)
+    this.sentiment_factor = globalParams.sentiment_factor
 
     //Others
-    this.population_factor = 10000
+    this.population_factor = globalParams.population_factor
 
     //Game graphics
     this.descent_speed = 80
     this.ascent_speed = 80
-    this.frame_rate = 40
+    this.frame_rate = 100
 
     //----------------------INITIALIZATION----------------------//
     //Lockdown//
@@ -1772,7 +1290,7 @@ class Scene_main extends Phaser.Scene {
 
 
 
-    //----------------------Create distric stats----------------------//
+    //----------------------Create distric stats and calculate national stats----------------------//
     this.create_district_stats()
 
     for(var i = 0; i < this.district_keys.length; i++){
@@ -1784,8 +1302,6 @@ class Scene_main extends Phaser.Scene {
       this.national_stats["infection_control"]["quarantined"] += district_stats["infection_control"]["quarantined"]
 
     }
-
-
 
     //----------------------Create and position the icons----------------------//
     this.icon_infection_control = this.add.sprite(80,20,"infection_control")
@@ -1895,6 +1411,8 @@ class Scene_main extends Phaser.Scene {
 
     //----------------------Create and position main stat bars----------------------//
     this.bar_cases_deaths_x = 1020
+    this.text_cases_x = 1020
+    this.text_deaths_x = 1020
     this.bar_economy_x = 1020
     this.bar_reserves_x = 1020
     this.bar_sentiment_x = 1020
@@ -1903,8 +1421,10 @@ class Scene_main extends Phaser.Scene {
     this.bar_humanity_x = 1020
 
     this.bar_cases_deaths_y = 100
-    this.bar_economy_y = 200
-    this.bar_reserves_y = 300
+    this.text_cases_y = 140
+    this.text_deaths_y = 180
+    this.bar_economy_y = 260
+    this.bar_reserves_y = 330
     this.bar_sentiment_y = 400
     this.bar_competence_y = 470
     this.bar_transparency_y = 530
@@ -1916,6 +1436,26 @@ class Scene_main extends Phaser.Scene {
     this.stats_bars = []
     this.stats_bars_small = []
     this.stats_bars_large = []
+
+    this.cases_deaths_style = {
+      fontFamily: "Trebuchet MS",
+      fontSize: "27px",
+      color: "#000000",
+      align: "left",
+      wordWrap: {width: 550},
+      lineSpacing: 0
+    }
+
+    this.cases_text = this.add.text(
+      this.text_cases_x, this.text_cases_y,
+      "CASES: " + this.district_stats[this.selected_district]["infection_control"]["cases_diagnosed"],
+      this.cases_deaths_style
+    )
+    this.deaths_text = this.add.text(
+      this.text_deaths_x, this.text_deaths_y,
+      "DEATHS: " + this.district_stats[this.selected_district]["infection_control"]["deaths"],
+      this.cases_deaths_style
+    )
 
     this.bar_cases_deaths_background = this.add.sprite(this.bar_cases_deaths_x, this.bar_cases_deaths_y, "bar_background")
     this.bar_economy_background = this.add.sprite(this.bar_economy_x, this.bar_economy_y, "bar_background")
@@ -1958,128 +1498,9 @@ class Scene_main extends Phaser.Scene {
     }
 
 
-    this.district_connection = {
-      district1: {
-        district1: 0,
-        district2: 0,
-        district3: 0,
-        district4: 0,
-        district5: 0,
-        district6: 0,
-        district7: 0,
-        district8: 0,
-        district9: 0,
-        district10: 0,
-      },
-      district2: {
-        district1: 0,
-        district2: 0,
-        district3: 0,
-        district4: 0,
-        district5: 3000,
-        district6: 0,
-        district7: 0,
-        district8: 0,
-        district9: 0,
-        district10: 0,
-      },
-      district3: {
-        district1: 0,
-        district2: 0,
-        district3: 0,
-        district4: 0,
-        district5: 0,
-        district6: 0,
-        district7: 1200,
-        district8: 0,
-        district9: 0,
-        district10: 0,
-      },
-      district4: {
-        district1: 0,
-        district2: 0,
-        district3: 0,
-        district4: 0,
-        district5: 4000,
-        district6: 0,
-        district7: 0,
-        district8: 0,
-        district9: 0,
-        district10: 0,
-      },
-      district5: {
-        district1: 0,
-        district2: 3000,
-        district3: 0,
-        district4: 4000,
-        district5: 0,
-        district6: 5000,
-        district7: 0,
-        district8: 2500,
-        district9: 2000,
-        district10: 0,
-      },
-      district6: {
-        district1: 0,
-        district2: 0,
-        district3: 0,
-        district4: 0,
-        district5: 5000,
-        district6: 0,
-        district7: 0,
-        district8: 0,
-        district9: 0,
-        district10: 1000,
-      },
-      district7: {
-        district1: 0,
-        district2: 0,
-        district3: 1200,
-        district4: 0,
-        district5: 0,
-        district6: 0,
-        district7: 0,
-        district8: 0,
-        district9: 0,
-        district10: 0,
-      },
-      district8: {
-        district1: 0,
-        district2: 0,
-        district3: 0,
-        district4: 0,
-        district5: 2500,
-        district6: 0,
-        district7: 0,
-        district8: 0,
-        district9: 0,
-        district10: 0,
-      },
-      district9: {
-        district1: 0,
-        district2: 0,
-        district3: 0,
-        district4: 0,
-        district5: 2000,
-        district6: 0,
-        district7: 0,
-        district8: 0,
-        district9: 0,
-        district10: 0,
-      },
-      district10: {
-        district1: 0,
-        district2: 0,
-        district3: 0,
-        district4: 0,
-        district5: 0,
-        district6: 0,
-        district7: 0,
-        district8: 0,
-        district9: 0,
-        district10: 1000,
-      }
-    }
+    var districtConnection = new DistrictInfo();
+    this.district_connection = districtConnection.get_district_connection()
+
 
 
     //-------Create the play and pause button-------//
@@ -2095,7 +1516,6 @@ class Scene_main extends Phaser.Scene {
     this.input.on("gameobjectdown",this.process_click,this)
 
   }
-
 
   update(){
     //----------------------Update interactivity of icons----------------------//
@@ -2702,6 +2122,16 @@ class Scene_main extends Phaser.Scene {
       (main_district_stats["infection_control"]["deaths"] + main_district_stats["infection_control"]["cases_active"])*this.bar_stats_scale1
        / (main_district_stats["population"]*this.population_factor),
       this.bar_stats_scale1
+    )
+
+    this.cases_text.setText(
+      "CASES: " + Math.round(this.district_stats[this.selected_district]["infection_control"]["cases_diagnosed"])
+    )
+    this.deaths_text.setText(
+      "DEATHS: " + Math.round(
+        this.district_stats[this.selected_district]["infection_control"]["deaths"] *
+        this.district_stats[this.selected_district]["infection_control"]["testing_capacity"]
+      )
     )
 
     this.color_bar_economy.setScale(main_district_stats["economy"]["production"]*this.bar_stats_scale1/100, this.bar_stats_scale1)
